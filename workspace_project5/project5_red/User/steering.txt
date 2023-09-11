@@ -1,0 +1,92 @@
+int8_t angle = 0;
+    int8_t t = 1;
+
+    while(1)
+    {
+        MAP_Timer_A_setCompareValue(TIMER_A2_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_3, 500);
+        delay_ms(1000);
+//        MAP_Timer_A_setCompareValue(TIMER_A2_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_3, 1000);
+//        delay_ms(1000);
+//        MAP_Timer_A_setCompareValue(TIMER_A2_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_3, 1500);
+//        delay_ms(1000);
+//        MAP_Timer_A_setCompareValue(TIMER_A2_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_3, 2000);
+//        delay_ms(1000);
+//        MAP_Timer_A_setCompareValue(TIMER_A2_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_3, 1500);
+//        delay_ms(1000);
+//        MAP_Timer_A_setCompareValue(TIMER_A2_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_3, 1000);
+//        delay_ms(1000);
+//        MAP_Timer_A_setCompareValue(TIMER_A2_BASE, TIMER_A_CAPTURECOMPARE_REGISTER_3, 500);
+//        delay_ms(1000);
+    }
+//    while(1)
+//    {
+//        set_steering(-90);
+//        delay_ms(1000);
+//        set_steering(-80);
+//        delay_ms(1000);
+//        set_steering(-70);
+//        delay_ms(1000);
+//        set_steering(-60);
+//        delay_ms(1000);
+//        set_steering(-30);
+//        delay_ms(1000);
+//        set_steering(0);
+//        delay_ms(1000);
+//        set_steering(30);
+//        delay_ms(1000);
+//    }
+
+
+
+//    while(1)
+//    {
+//        if(angle == -40)
+//        {
+//            t = 1;
+//        }
+//        if(angle == 45)
+//        {
+//            t = -1;
+//        }
+//        angle += t;
+//        set_steering(angle);
+//        delay_ms(100);
+//
+//    }
+
+    pid_initialize(&pid_laser, 1.3, 0.2,  0,  6, 45);
+    while(1)
+    {
+        laser_angle_t -= pid_update(&pid_laser, 1.0 * LaserMessage.angle1 / LaserMessage.angle2);
+        laser_angle_t = Limiter(laser_angle_t, -45, 45);
+        set_steering(laser_angle_t);
+        delay_ms(100);
+    }
+    
+    
+    
+    
+    while(1)
+    {
+        if(LaserMessage.angle1 < 10 && LaserMessage.n1 == 100 && LaserMessage.angle2 < 10 && LaserMessage.n2 == 100)
+        {
+            break;
+        }
+        else
+        {
+            BUZZER_OFF;
+            LED2_RGB(0, 1, 0);
+        }
+
+
+        //if(LaserMessage.n1 != 0 && (LaserMessage.n1 < 100 || (LaserMessage.angle1 > 50 && LaserMessage.n1 == 100)))
+            yaw_angle += pid_update(&pid_yaw, 1.0 * LaserMessage.angle1 / LaserMessage.n1);
+        yaw_angle = Limiter(yaw_angle, -60, 60);
+        set_yaw(yaw_angle);
+
+        //if(LaserMessage.n2 != 0 && (LaserMessage.n2 < 100 || (LaserMessage.angle2 > 50 && LaserMessage.n2 == 100)))
+            pitch_angle += pid_update(&pid_pitch, 1.0 * LaserMessage.angle2 / LaserMessage.n2);
+        pitch_angle = Limiter(pitch_angle, 15, 40);
+        set_pitch(pitch_angle);
+        delay_ms(100);
+    }    

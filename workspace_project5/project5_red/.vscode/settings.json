@@ -1,0 +1,24 @@
+{
+    "files.associations": {
+        "isr.h": "c",
+        "motor.h": "c",
+        "key.h": "c",
+        "menu.h": "c",
+        "headfile.h": "c",
+        "stdbool.h": "c",
+        "mission.h": "c",
+        "openmv.h": "c",
+        "encoder.h": "c",
+        "task_control.h": "c",
+        "cmath": "c",
+        "*.tcc": "c",
+        "cstdlib": "c",
+        "math.h": "c",
+        "pid.h": "c",
+        "infoprint.h": "c",
+        "task_decision.h": "c",
+        "limits": "c",
+        "led.h": "c",
+        "bluetooth.h": "c"
+    }
+}

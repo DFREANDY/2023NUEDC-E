@@ -1,0 +1,19 @@
+
+**** Build of configuration Debug for project Project5 ****
+
+"E:\\MyStudyApp\\MyTI\\ccs1230\\ccs\\utils\\bin\\gmake" -k -j 12 all -O 
+ 
+Building file: "../main.c"
+Invoking: Arm Compiler
+"E:/MyStudyApp/MyTI/ccs1230/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="E:/MyDigitalDesign/Project5/workspace_project5/Project5/User" --include_path="E:/MyDigitalDesign/Project5/workspace_project5/Project5/User/Keyboard" --include_path="E:/MyDigitalDesign/Project5/workspace_project5/Project5/User/Laser" --include_path="E:/MyDigitalDesign/Project5/workspace_project5/Project5/User/InfoPrint" --include_path="E:/MyDigitalDesign/Project5/workspace_project5/Project5/User/Openmv" --include_path="E:/MyDigitalDesign/Project5/workspace_project5/Project5/User/Clock" --include_path="E:/MyDigitalDesign/Project5/workspace_project5/Project5/User/delay" --include_path="E:/MyDigitalDesign/Project5/workspace_project5/Project5/User/KEY" --include_path="E:/MyDigitalDesign/Project5/workspace_project5/Project5/User/LED" --include_path="E:/MyDigitalDesign/Project5/workspace_project5/Project5/User/motor" --include_path="E:/MyDigitalDesign/Project5/workspace_project5/Project5/User/oled" --include_path="E:/MyDigitalDesign/Project5/workspace_project5/Project5/User/PID" --include_path="E:/MyDigitalDesign/Project5/workspace_project5/Project5/User/Tasks" --include_path="E:/MyDigitalDesign/Project5/workspace_project5/Project5/User/timer" --include_path="E:/MyDigitalDesign/Project5/workspace_project5/Project5" --include_path="E:/MyStudyApp/MyTI/ccs1230/simplelink_msp432p4_sdk_3_40_01_02/source" --include_path="E:/MyStudyApp/MyTI/ccs1230/simplelink_msp432p4_sdk_3_40_01_02/source/third_party/CMSIS/Include" --include_path="E:/MyStudyApp/MyTI/ccs1230/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=__MSP432P401R__ --define=DeviceFamily_MSP432P401x -g --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 95: warning #129-D: loop is not reachable
+Finished building: "../main.c"
+ 
+Building target: "Project5.out"
+Invoking: Arm Linker
+"E:/MyStudyApp/MyTI/ccs1230/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=__MSP432P401R__ --define=DeviceFamily_MSP432P401x -g --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on -z -m"Project5.map" --stack_size=512 -i"E:/MyStudyApp/MyTI/ccs1230/simplelink_msp432p4_sdk_3_40_01_02/source" -i"E:/MyStudyApp/MyTI/ccs1230/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Project5_linkInfo.xml" --rom_model -o "Project5.out" "./main.obj" "./system_msp432p401r.obj" "./User/Clock/clock.obj" "./User/InfoPrint/infoprint.obj" "./User/KEY/key.obj" "./User/Keyboard/keyboard.obj" "./User/LED/led.obj" "./User/Laser/laser.obj" "./User/Openmv/openmv.obj" "./User/PID/pid.obj" "./User/Tasks/task_control.obj" "./User/Tasks/task_decision.obj" "./User/delay/delay.obj" "./User/motor/motor.obj" "./User/no_use.obj" "./User/oled/oled.obj" "./User/timer/timer.obj" "./ccs/startup_msp432p401r_ccs.obj" "../msp432p401r.cmd"  -l"ti/display/lib/display.aem4f" -l"ti/grlib/lib/ccs/m4f/grlib.a" -l"third_party/spiffs/lib/ccs/m4f/spiffs.a" -l"ti/drivers/lib/drivers_msp432p401x.aem4f" -l"third_party/fatfs/lib/ccs/m4f/fatfs.a" -l"ti/devices/msp432p4xx/driverlib/ccs/msp432p4xx_driverlib.lib" -llibc.a 
+<Linking>
+Finished building target: "Project5.out"
+ 
+
+**** Build Finished ****

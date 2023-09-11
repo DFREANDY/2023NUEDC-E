@@ -1,0 +1,862 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.7                     
+******************************************************************************
+>> Linked Tue Aug  1 12:29:32 2023
+
+OUTPUT FILE NAME:   <Project3_Car1.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00003689
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  MAIN                  00000000   00040000  00004504  0003bafc  R  X
+  INFO                  00200000   00004000  00000000  00004000  R  X
+  SRAM_CODE             01000000   00010000  00000497  0000fb69  RW X
+  SRAM_DATA             20000000   00010000  00000497  0000fb69  RW  
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00004508   00004508    r-x
+  00000000    00000000    000000e4   000000e4    r-- .intvecs
+  000000e4    000000e4    00003a9c   00003a9c    r-x .text
+  00003b80    00003b80    00000944   00000944    r-- .const
+  000044c8    000044c8    00000040   00000040    r-- .cinit
+20000000    20000000    00000297   00000000    rw-
+  20000000    20000000    00000270   00000000    rw- .bss
+  20000270    20000270    00000027   00000000    rw- .data
+2000fe00    2000fe00    00000200   00000000    rw-
+  2000fe00    2000fe00    00000200   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    000000e4     
+                  00000000    000000e4     startup_msp432p401r_ccs.obj (.intvecs:retain)
+
+.text      0    000000e4    00003a9c     
+                  000000e4    0000031c     task_control.obj (.text:main_control)
+                  00000400    000001e0     mission.obj (.text:shoot_target)
+                  000005e0    000001a4     openmv.obj (.text:Openmv_Receive_Data)
+                  00000784    00000198     main.obj (.text:main)
+                  0000091c    00000194     laser.obj (.text:Laser_Receive_Data)
+                  00000ab0    00000190     motor.obj (.text:pid_set)
+                  00000c40    00000178     motor.obj (.text:set_speed_back)
+                  00000db8    00000178     motor.obj (.text:set_speed_front)
+                  00000f30    00000164     infoprint.obj (.text:info_print_mainmenu)
+                  00001094    0000014c     encoder.obj (.text:PORT4_IRQHandler)
+                  000011e0    00000144     msp432p4xx_driverlib.lib : timer_a.o (.text:privateTimer_AProcessClockSourceDivider)
+                  00001324    00000136     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_div_t2.asm.obj (.text)
+                  0000145a    00000132     exti.obj (.text:EXTI_Init)
+                  0000158c    00000120     oled.obj (.text:OLED_ShowChar)
+                  000016ac    0000011c     msp432p4xx_driverlib.lib : uart.o (.text:UART_initModule)
+                  000017c8    00000110     pid.obj (.text:pid_update)
+                  000018d8    00000104     msp432p4xx_driverlib.lib : cs.o (.text:_CSComputeCLKFrequency)
+                  000019dc    00000100     motor.obj (.text:pwm_duty)
+                  00001adc    000000fc     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_mul_t2.asm.obj (.text)
+                  00001bd8    000000f8     msp432p4xx_driverlib.lib : cs.o (.text:CS_getDCOFrequency)
+                  00001cd0    000000ec     oled.obj (.text:OLED_Init)
+                  00001dbc    000000e4     msp432p4xx_driverlib.lib : cs.o (.text:CS_startHFXTWithTimeout)
+                  00001ea0    000000e0                              : cs.o (.text:CS_startLFXTWithTimeout)
+                  00001f80    000000dc                              : cs.o (.text:_CSGetHFXTFrequency)
+                  0000205c    000000cc     clock.obj (.text:CLOCK_Init)
+                  00002128    000000c4     motor.obj (.text:set_pitch)
+                  000021ec    000000c0     motor.obj (.text:set_yaw)
+                  000022ac    000000a8     bluetooth.obj (.text:communicate_handler)
+                  00002354    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  000023f0    00000098     timer.obj (.text:TimA0_Init)
+                  00002488    00000094     msp432p4xx_driverlib.lib : sysctl_a.o (.text:SysCtl_A_getTLVInfo)
+                  0000251c    00000094     timer.obj (.text:TimA1_Init)
+                  000025b0    00000094     motor.obj (.text:motor_finish)
+                  00002644    00000090     main.obj (.text:clear_PID)
+                  000026d4    00000086     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_cmp_t2.asm.obj (.text:__aeabi_cdcmple)
+                  0000275a    00000086                                   : fd_cmp_t2.asm.obj (.text:__aeabi_cdrcmple)
+                  000027e0    00000086     motor.obj (.text:set_motor)
+                  00002866    00000002     startup_msp432p401r_ccs.obj (.text:Default_Handler)
+                  00002868    00000080     msp432p4xx_driverlib.lib : interrupt.o (.text:Interrupt_enableInterrupt)
+                  000028e8    0000007c                              : cs.o (.text:_CSGetDOCFrequency)
+                  00002964    0000007c     mission.obj (.text:path_4)
+                  000029e0    0000007c     main.obj (.text:steering_init)
+                  00002a5c    00000078     system_msp432p401r.obj (.text:SystemInit)
+                  00002ad4    00000070     timer.obj (.text:TimA2_Init)
+                  00002b44    0000006e     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_tos_t2.asm.obj (.text)
+                  00002bb2    0000006c     oled.obj (.text:OLED_ShowString)
+                  00002c1e    0000006a     oled.obj (.text:OLED_Clear)
+                  00002c88    00000068     oled.obj (.text:Send_Byte)
+                  00002cf0    00000068     msp432p4xx_driverlib.lib : timer_a.o (.text:Timer_A_configureUpMode)
+                  00002d58    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  00002dc0    00000064     msp432p4xx_driverlib.lib : uart.o (.text:UART_getEnabledInterruptStatus)
+                  00002e24    00000064     motor.obj (.text:motor_stop)
+                  00002e88    00000064     pid.obj (.text:pid_initialize)
+                  00002eec    00000062     msp432p4xx_driverlib.lib : cs.o (.text:_CSGetDividerValue)
+                  00002f4e    00000002     --HOLE-- [fill = 0]
+                  00002f50    00000060     bluetooth.obj (.text:Bluetooth_Init)
+                  00002fb0    00000060     laser.obj (.text:Laser_Init)
+                  00003010    00000060     openmv.obj (.text:Openmv_Init)
+                  00003070    0000005c     delay.obj (.text:delay_ms)
+                  000030cc    00000058     msp432p4xx_driverlib.lib : gpio.o (.text:GPIO_setAsInputPinWithPullUpResistor)
+                  00003124    00000058     led.obj (.text:LED2_RGB)
+                  0000317c    00000058     mission.obj (.text:Mission_4)
+                  000031d4    00000054     msp432p4xx_driverlib.lib : interrupt.o (.text:Interrupt_setPriority)
+                  00003228    00000054     led.obj (.text:LED_Init)
+                  0000327c    00000050     bluetooth.obj (.text:task_and_speed_post)
+                  000032cc    0000004c     bluetooth.obj (.text:task_control_post)
+                  00003318    00000046     key.obj (.text:KEY_Input)
+                  0000335e    00000002     --HOLE-- [fill = 0]
+                  00003360    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  000033a4    00000044     main.obj (.text:clear_statemachine)
+                  000033e8    00000044     bluetooth.obj (.text:task_stop_post)
+                  0000342c    00000042     oled.obj (.text:OLED_WR_Byte)
+                  0000346e    00000002     --HOLE-- [fill = 0]
+                  00003470    00000040     msp432p4xx_driverlib.lib : gpio.o (.text:GPIO_setAsOutputPin)
+                  000034b0    00000040     rtsv7M4_T_le_v4SPD16_eabi.lib : ll_tofd_t2.asm.obj (.text)
+                  000034f0    00000040     encoder.obj (.text:until_distance)
+                  00003530    0000003c     msp432p4xx_driverlib.lib : gpio.o (.text:GPIO_interruptEdgeSelect)
+                  0000356c    0000003c     oled.obj (.text:OLED_Set_Pos)
+                  000035a8    0000003c     delay.obj (.text:delay_init)
+                  000035e4    00000038     encoder.obj (.text:distance_calc)
+                  0000361c    00000038     rtsv7M4_T_le_v4SPD16_eabi.lib : fs_tod_t2.asm.obj (.text)
+                  00003654    00000034     timer.obj (.text:TA3_IT_INIT)
+                  00003688    00000034     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  000036bc    00000034     mission.obj (.text:shoot_at_turn)
+                  000036f0    00000030     msp432p4xx_driverlib.lib : cs.o (.text:CS_clearInterruptFlag)
+                  00003720    00000030                              : gpio.o (.text:GPIO_getInputPinValue)
+                  00003750    00000030                              : uart.o (.text:UART_receiveData)
+                  00003780    0000002e     rtsv7M4_T_le_v4SPD16_eabi.lib : i_tofd_t2.asm.obj (.text)
+                  000037ae    00000002     --HOLE-- [fill = 0]
+                  000037b0    0000002c     openmv.obj (.text:EUSCIA2_IRQHandler)
+                  000037dc    0000002c     msp432p4xx_driverlib.lib : timer_a.o (.text:Timer_A_clearCaptureCompareInterrupt)
+                  00003808    0000002c     main.obj (.text:clear_bluemessage)
+                  00003834    00000028     msp432p4xx_driverlib.lib : cs.o (.text:CS_getMCLK)
+                  0000385c    00000028     laser.obj (.text:EUSCIA1_IRQHandler)
+                  00003884    00000028     bluetooth.obj (.text:EUSCIA3_IRQHandler)
+                  000038ac    00000028     msp432p4xx_driverlib.lib : gpio.o (.text:GPIO_clearInterruptFlag)
+                  000038d4    00000028                              : gpio.o (.text:GPIO_enableInterrupt)
+                  000038fc    00000028                              : gpio.o (.text:GPIO_setOutputHighOnPin)
+                  00003924    00000028                              : gpio.o (.text:GPIO_setOutputLowOnPin)
+                  0000394c    00000024     oled.obj (.text:I2C_Start)
+                  00003970    00000024     msp432p4xx_driverlib.lib : wdt_a.o (.text:WDT_A_holdTimer)
+                  00003994    00000020                              : cs.o (.text:CS_setExternalClockSourceFrequency)
+                  000039b4    00000020     oled.obj (.text:I2C_SW_Configuration)
+                  000039d4    00000020     task_control.obj (.text:TA3_0_IRQHandler)
+                  000039f4    0000001c     oled.obj (.text:I2C_Stop)
+                  00003a10    0000001c     oled.obj (.text:I2C_WaitAck)
+                  00003a2c    0000001c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  00003a48    00000018     msp432p4xx_driverlib.lib : sysctl_a.o (.text:SysCtl_A_disableNMISource)
+                  00003a60    00000018                              : sysctl_a.o (.text:SysCtl_A_enableNMISource)
+                  00003a78    00000018                              : timer_a.o (.text:Timer_A_clearTimer)
+                  00003a90    00000018                              : uart.o (.text:UART_getInterruptStatus)
+                  00003aa8    00000018     mission.obj (.text:stop_the_car)
+                  00003ac0    00000018     mission.obj (.text:until_fork)
+                  00003ad8    00000018     mission.obj (.text:until_turn)
+                  00003af0    00000016     msp432p4xx_driverlib.lib : timer_a.o (.text:Timer_A_startCounter)
+                  00003b06    00000012                              : cs.o (.text:CS_startHFXT)
+                  00003b18    00000010                              : interrupt.o (.text:Interrupt_enableMaster)
+                  00003b28    00000010                              : sysctl_a.o (.text:SysCtl_A_getNMISourceStatus)
+                  00003b38    0000000e                              : cs.o (.text:CS_startLFXT)
+                  00003b46    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  00003b54    0000000c     msp432p4xx_driverlib.lib : cpu.o (.text:CPU_cpsie)
+                  00003b60    0000000c     key.obj (.text:KEY_Init)
+                  00003b6c    0000000c     startup_msp432p401r_ccs.obj (.text:Reset_Handler)
+                  00003b78    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  00003b7c    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.const     0    00003b80    00000944     
+                  00003b80    000005f0     oled.obj (.const:asc2_1608)
+                  00004170    0000023a     oled.obj (.const:asc2_0806)
+                  000043aa    00000002     --HOLE-- [fill = 0]
+                  000043ac    00000050     msp432p4xx_driverlib.lib : interrupt.o (.const:g_pulRegs)
+                  000043fc    00000030                              : gpio.o (.const:GPIO_PORT_TO_BASE)
+                  0000442c    00000028     bluetooth.obj (.const:uartConfigBlue)
+                  00004454    00000028     laser.obj (.const:uartConfigLaser)
+                  0000447c    00000028     openmv.obj (.const:uartConfigOpen)
+                  000044a4    00000018     timer.obj (.const:upConfig)
+                  000044bc    00000008     msp432p4xx_driverlib.lib : interrupt.o (.const:g_pulEnRegs)
+
+.cinit     0    000044c8    00000040     
+                  000044c8    00000016     (.cinit..data.load) [load image, compression = lzss]
+                  000044de    00000002     --HOLE-- [fill = 0]
+                  000044e0    0000000c     (__TI_handler_table)
+                  000044ec    00000004     --HOLE-- [fill = 0]
+                  000044f0    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  000044f8    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.binit     0    00000000    00000000     
+
+.bss       0    20000000    00000270     UNINITIALIZED
+                  20000000    000000fc     bluetooth.obj (.bss:ucRxBuffer$1)
+                  200000fc    00000024     (.common:pid_diff)
+                  20000120    00000024     (.common:pid_lb)
+                  20000144    00000024     (.common:pid_lf)
+                  20000168    00000024     (.common:pid_pitch)
+                  2000018c    00000024     (.common:pid_rb)
+                  200001b0    00000024     (.common:pid_rf)
+                  200001d4    00000024     (.common:pid_yaw)
+                  200001f8    00000014     (.common:set_speed)
+                  2000020c    0000000c     (.common:StateMachine)
+                  20000218    00000008     laser.obj (.bss:laser$1)
+                  20000220    00000008     msp432p4xx_driverlib.lib : cs.o (.bss)
+                  20000228    00000008     openmv.obj (.bss:openmv$1)
+                  20000230    00000008     (.common:BlueMessage)
+                  20000238    00000008     (.common:encode_total)
+                  20000240    00000005     (.common:OpenmvMessage)
+                  20000245    00000004     (.common:LaserMessage)
+                  20000249    00000001     (.common:main_control_flag)
+                  2000024a    00000002     --HOLE--
+                  2000024c    00000004     (.common:basic_speed)
+                  20000250    00000004     (.common:diff_speed)
+                  20000254    00000004     (.common:dis_total)
+                  20000258    00000004     (.common:encode_lb)
+                  2000025c    00000004     (.common:encode_lf)
+                  20000260    00000004     (.common:encode_rb)
+                  20000264    00000004     (.common:encode_rf)
+                  20000268    00000004     (.common:mission_time_count)
+                  2000026c    00000004     (.common:time_count_flag)
+
+.data      0    20000270    00000027     UNINITIALIZED
+                  20000270    00000010     task_control.obj (.data)
+                  20000280    00000008     motor.obj (.data)
+                  20000288    00000005     main.obj (.data)
+                  2000028d    00000001     bluetooth.obj (.data)
+                  2000028e    00000004     delay.obj (.data)
+                  20000292    00000003     openmv.obj (.data)
+                  20000295    00000002     laser.obj (.data)
+
+.stack     0    2000fe00    00000200     UNINITIALIZED
+                  2000fe00    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  2000fe04    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                        code    ro data   rw data
+       ------                        ----    -------   -------
+    .\
+       main.obj                      788     0         570    
+       system_msp432p401r.obj        120     0         0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        908     0         570    
+                                                              
+    .\User\Bluetooth\
+       bluetooth.obj                 528     40        506    
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        528     40        506    
+                                                              
+    .\User\Clock\
+       clock.obj                     204     0         0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        204     0         0      
+                                                              
+    .\User\EXTI\
+       exti.obj                      306     0         0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        306     0         0      
+                                                              
+    .\User\Encoder\
+       encoder.obj                   452     0         56     
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        452     0         56     
+                                                              
+    .\User\InfoPrint\
+       infoprint.obj                 356     0         0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        356     0         0      
+                                                              
+    .\User\KEY\
+       key.obj                       82      0         0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        82      0         0      
+                                                              
+    .\User\LED\
+       led.obj                       172     0         0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        172     0         0      
+                                                              
+    .\User\Laser\
+       laser.obj                     540     40        28     
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        540     40        28     
+                                                              
+    .\User\Mission\
+       mission.obj                   816     0         0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        816     0         0      
+                                                              
+    .\User\Openmv\
+       openmv.obj                    560     40        32     
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        560     40        32     
+                                                              
+    .\User\PID\
+       pid.obj                       372     0         0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        372     0         0      
+                                                              
+    .\User\Tasks\
+       task_control.obj              828     0         42     
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        828     0         42     
+                                                              
+    .\User\delay\
+       delay.obj                     152     0         8      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        152     0         8      
+                                                              
+    .\User\motor\
+       motor.obj                     2178    0         64     
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        2178    0         64     
+                                                              
+    .\User\oled\
+       oled.obj                      1092    2090      0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        1092    2090      0      
+                                                              
+    .\User\timer\
+       timer.obj                     464     24        0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        464     24        0      
+                                                              
+    .\ccs\
+       startup_msp432p401r_ccs.obj   14      228       0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        14      228       0      
+                                                              
+    E:/MyStudyApp/MyTI/ccs1230/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/ccs/msp432p4xx_driverlib.lib
+       cs.o                          1554    0         16     
+       timer_a.o                     518     0         0      
+       gpio.o                        420     48        0      
+       uart.o                        456     0         0      
+       interrupt.o                   228     88        0      
+       sysctl_a.o                    212     0         0      
+       wdt_a.o                       36      0         0      
+       cpu.o                         12      0         0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        3436    136       16     
+                                                              
+    E:\MyStudyApp\MyTI\ccs1230\ccs\tools\compiler\ti-cgt-arm_20.2.7.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       fd_div_t2.asm.obj             310     0         0      
+       fd_cmp_t2.asm.obj             268     0         0      
+       fd_mul_t2.asm.obj             252     0         0      
+       memcpy_t2.asm.obj             156     0         0      
+       fd_tos_t2.asm.obj             110     0         0      
+       copy_decompress_lzss.c.obj    104     0         0      
+       autoinit.c.obj                68      0         0      
+       ll_tofd_t2.asm.obj            64      0         0      
+       fs_tod_t2.asm.obj             56      0         0      
+       boot_cortex_m.c.obj           52      0         0      
+       i_tofd_t2.asm.obj             46      0         0      
+       copy_zero_init.c.obj          28      0         0      
+       copy_decompress_none.c.obj    14      0         0      
+       exit.c.obj                    4       0         0      
+       pre_init.c.obj                4       0         0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        1536    0         0      
+                                                              
+       Stack:                        0       0         1024   
+       Linker Generated:             0       58        0      
+    +--+-----------------------------+-------+---------+---------+
+       Grand Total:                  14996   2656      2346   
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 000044f8 records: 2, size/record: 8, table size: 16
+	.data: load addr=000044c8, load size=00000016 bytes, run addr=20000270, run size=00000027 bytes, compression=lzss
+	.bss: load addr=000044f0, load size=00000008 bytes, run addr=20000000, run size=00000270 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 000044e0 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                                
+-------   ----                                
+00002867  ADC14_IRQHandler                    
+00002867  AES256_IRQHandler                   
+20000230  BlueMessage                         
+00002f51  Bluetooth_Init                      
+00002867  BusFault_Handler                    
+00003b7d  C$$EXIT                             
+0000205d  CLOCK_Init                          
+00002867  COMP_E0_IRQHandler                  
+00002867  COMP_E1_IRQHandler                  
+00003b55  CPU_cpsie                           
+00002867  CS_IRQHandler                       
+000036f1  CS_clearInterruptFlag               
+00001bd9  CS_getDCOFrequency                  
+00003835  CS_getMCLK                          
+00003995  CS_setExternalClockSourceFrequency  
+00003b07  CS_startHFXT                        
+00001dbd  CS_startHFXTWithTimeout             
+00003b39  CS_startLFXT                        
+00001ea1  CS_startLFXTWithTimeout             
+00002867  DMA_ERR_IRQHandler                  
+00002867  DMA_INT0_IRQHandler                 
+00002867  DMA_INT1_IRQHandler                 
+00002867  DMA_INT2_IRQHandler                 
+00002867  DMA_INT3_IRQHandler                 
+00002867  DebugMon_Handler                    
+00002867  Default_Handler                     
+00002867  EUSCIA0_IRQHandler                  
+0000385d  EUSCIA1_IRQHandler                  
+0000385d  EUSCIA1_IRQHandler                  
+000037b1  EUSCIA2_IRQHandler                  
+000037b1  EUSCIA2_IRQHandler                  
+00003885  EUSCIA3_IRQHandler                  
+00003885  EUSCIA3_IRQHandler                  
+00002867  EUSCIB0_IRQHandler                  
+00002867  EUSCIB1_IRQHandler                  
+00002867  EUSCIB2_IRQHandler                  
+00002867  EUSCIB3_IRQHandler                  
+0000145b  EXTI_Init                           
+00002867  FLCTL_IRQHandler                    
+00002867  FPU_IRQHandler                      
+000038ad  GPIO_clearInterruptFlag             
+000038d5  GPIO_enableInterrupt                
+00003721  GPIO_getInputPinValue               
+00003531  GPIO_interruptEdgeSelect            
+000030cd  GPIO_setAsInputPinWithPullUpResistor
+00003471  GPIO_setAsOutputPin                 
+000038fd  GPIO_setOutputHighOnPin             
+00003925  GPIO_setOutputLowOnPin              
+00002867  HardFault_Handler                   
+000039b5  I2C_SW_Configuration                
+0000394d  I2C_Start                           
+000039f5  I2C_Stop                            
+00003a11  I2C_WaitAck                         
+00002869  Interrupt_enableInterrupt           
+00003b19  Interrupt_enableMaster              
+000031d5  Interrupt_setPriority               
+00003b61  KEY_Init                            
+00003319  KEY_Input                           
+00003125  LED2_RGB                            
+00003229  LED_Init                            
+20000245  LaserMessage                        
+00002fb1  Laser_Init                          
+0000091d  Laser_Receive_Data                  
+00002867  MemManage_Handler                   
+0000317d  Mission_4                           
+00002867  NMI_Handler                         
+00002c1f  OLED_Clear                          
+00001cd1  OLED_Init                           
+0000356d  OLED_Set_Pos                        
+0000158d  OLED_ShowChar                       
+00002bb3  OLED_ShowString                     
+0000342d  OLED_WR_Byte                        
+20000240  OpenmvMessage                       
+00003011  Openmv_Init                         
+000005e1  Openmv_Receive_Data                 
+00002867  PCM_IRQHandler                      
+00002867  PORT1_IRQHandler                    
+00002867  PORT2_IRQHandler                    
+00002867  PORT3_IRQHandler                    
+00001095  PORT4_IRQHandler                    
+00001095  PORT4_IRQHandler                    
+00002867  PORT5_IRQHandler                    
+00002867  PORT6_IRQHandler                    
+00002867  PSS_IRQHandler                      
+00002867  PendSV_Handler                      
+00002867  RTC_C_IRQHandler                    
+20000292  RXData                              
+00003b6d  Reset_Handler                       
+00002867  SVC_Handler                         
+00002c89  Send_Byte                           
+2000020c  StateMachine                        
+00003a49  SysCtl_A_disableNMISource           
+00003a61  SysCtl_A_enableNMISource            
+00003b29  SysCtl_A_getNMISourceStatus         
+00002489  SysCtl_A_getTLVInfo                 
+00002867  SysTick_Handler                     
+00002a5d  SystemInit                          
+00002867  T32_INT1_IRQHandler                 
+00002867  T32_INT2_IRQHandler                 
+00002867  T32_INTC_IRQHandler                 
+00002867  TA0_0_IRQHandler                    
+00002867  TA0_N_IRQHandler                    
+00002867  TA1_0_IRQHandler                    
+00002867  TA1_N_IRQHandler                    
+00002867  TA2_0_IRQHandler                    
+00002867  TA2_N_IRQHandler                    
+000039d5  TA3_0_IRQHandler                    
+000039d5  TA3_0_IRQHandler                    
+00003655  TA3_IT_INIT                         
+00002867  TA3_N_IRQHandler                    
+000023f1  TimA0_Init                          
+0000251d  TimA1_Init                          
+00002ad5  TimA2_Init                          
+000037dd  Timer_A_clearCaptureCompareInterrupt
+00003a79  Timer_A_clearTimer                  
+00002cf1  Timer_A_configureUpMode             
+00003af1  Timer_A_startCounter                
+00002dc1  UART_getEnabledInterruptStatus      
+00003a91  UART_getInterruptStatus             
+000016ad  UART_initModule                     
+00003751  UART_receiveData                    
+00002867  UsageFault_Handler                  
+4000480c  WDTCTL_SYM                          
+00002867  WDT_A_IRQHandler                    
+00003971  WDT_A_holdTimer                     
+20010000  __STACK_END                         
+00000200  __STACK_SIZE                        
+000044f8  __TI_CINIT_Base                     
+00004508  __TI_CINIT_Limit                    
+000044e0  __TI_Handler_Table_Base             
+000044ec  __TI_Handler_Table_Limit            
+00003361  __TI_auto_init_nobinit_nopinit      
+00002d59  __TI_decompress_lzss                
+00003b47  __TI_decompress_none                
+ffffffff  __TI_pprof_out_hndl                 
+ffffffff  __TI_prof_data_size                 
+ffffffff  __TI_prof_data_start                
+00000000  __TI_static_base__                  
+00003a2d  __TI_zero_init_nomemset             
+000026d5  __aeabi_cdcmpeq                     
+000026d5  __aeabi_cdcmple                     
+0000275b  __aeabi_cdrcmple                    
+00002b45  __aeabi_d2f                         
+00001325  __aeabi_ddiv                        
+00001add  __aeabi_dmul                        
+0000361d  __aeabi_f2d                         
+00003781  __aeabi_i2d                         
+000034b1  __aeabi_l2d                         
+00002355  __aeabi_memcpy                      
+00002355  __aeabi_memcpy4                     
+00002355  __aeabi_memcpy8                     
+ffffffff  __binit__                           
+ffffffff  __c_args__                          
+UNDEFED   __mpu_init                          
+2000fe00  __stack                             
+20000000  __start___llvm_prf_cnts             
+20000000  __stop___llvm_prf_cnts              
+00003689  _c_int00_noargs                     
+UNDEFED   _system_post_cinit                  
+00003b79  _system_pre_init                    
+00003b7d  abort                               
+20000278  aming                               
+00004170  asc2_0806                           
+00003b80  asc2_1608                           
+2000024c  basic_speed                         
+ffffffff  binit                               
+00002645  clear_PID                           
+00003809  clear_bluemessage                   
+000033a5  clear_statemachine                  
+000022ad  communicate_handler                 
+20000270  control_speed                       
+000035a9  delay_init                          
+00003071  delay_ms                            
+20000250  diff_speed                          
+20000254  dis_total                           
+000035e5  distance_calc                       
+20000258  encode_lb                           
+2000025c  encode_lf                           
+20000260  encode_rb                           
+20000264  encode_rf                           
+20000238  encode_total                        
+00000f31  info_print_mainmenu                 
+00000000  interruptVectors                    
+20000288  key1_status                         
+20000289  key2_status                         
+2000028a  key3_status                         
+2000028b  key4_status                         
+20000274  laser_angle                         
+00000785  main                                
+000000e5  main_control                        
+20000249  main_control_flag                   
+00002355  memcpy                              
+20000268  mission_time_count                  
+000025b1  motor_finish                        
+00002e25  motor_stop                          
+00002965  path_4                              
+200000fc  pid_diff                            
+00002e89  pid_initialize                      
+20000120  pid_lb                              
+20000144  pid_lf                              
+20000168  pid_pitch                           
+2000018c  pid_rb                              
+200001b0  pid_rf                              
+00000ab1  pid_set                             
+000017c9  pid_update                          
+200001d4  pid_yaw                             
+20000280  pitch_angle                         
+2000028c  pointer                             
+000019dd  pwm_duty                            
+000027e1  set_motor                           
+00002129  set_pitch                           
+200001f8  set_speed                           
+00000c41  set_speed_back                      
+00000db9  set_speed_front                     
+000021ed  set_yaw                             
+000036bd  shoot_at_turn                       
+00000401  shoot_target                        
+000029e1  steering_init                       
+00003aa9  stop_the_car                        
+0000327d  task_and_speed_post                 
+000032cd  task_control_post                   
+000033e9  task_stop_post                      
+2000026c  time_count_flag                     
+0000442c  uartConfigBlue                      
+00004454  uartConfigLaser                     
+0000447c  uartConfigOpen                      
+000034f1  until_distance                      
+00003ac1  until_fork                          
+00003ad9  until_turn                          
+000044a4  upConfig                            
+20000284  yaw_angle                           
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                                
+-------   ----                                
+00000000  __TI_static_base__                  
+00000000  interruptVectors                    
+000000e5  main_control                        
+00000200  __STACK_SIZE                        
+00000401  shoot_target                        
+000005e1  Openmv_Receive_Data                 
+00000785  main                                
+0000091d  Laser_Receive_Data                  
+00000ab1  pid_set                             
+00000c41  set_speed_back                      
+00000db9  set_speed_front                     
+00000f31  info_print_mainmenu                 
+00001095  PORT4_IRQHandler                    
+00001095  PORT4_IRQHandler                    
+00001325  __aeabi_ddiv                        
+0000145b  EXTI_Init                           
+0000158d  OLED_ShowChar                       
+000016ad  UART_initModule                     
+000017c9  pid_update                          
+000019dd  pwm_duty                            
+00001add  __aeabi_dmul                        
+00001bd9  CS_getDCOFrequency                  
+00001cd1  OLED_Init                           
+00001dbd  CS_startHFXTWithTimeout             
+00001ea1  CS_startLFXTWithTimeout             
+0000205d  CLOCK_Init                          
+00002129  set_pitch                           
+000021ed  set_yaw                             
+000022ad  communicate_handler                 
+00002355  __aeabi_memcpy                      
+00002355  __aeabi_memcpy4                     
+00002355  __aeabi_memcpy8                     
+00002355  memcpy                              
+000023f1  TimA0_Init                          
+00002489  SysCtl_A_getTLVInfo                 
+0000251d  TimA1_Init                          
+000025b1  motor_finish                        
+00002645  clear_PID                           
+000026d5  __aeabi_cdcmpeq                     
+000026d5  __aeabi_cdcmple                     
+0000275b  __aeabi_cdrcmple                    
+000027e1  set_motor                           
+00002867  ADC14_IRQHandler                    
+00002867  AES256_IRQHandler                   
+00002867  BusFault_Handler                    
+00002867  COMP_E0_IRQHandler                  
+00002867  COMP_E1_IRQHandler                  
+00002867  CS_IRQHandler                       
+00002867  DMA_ERR_IRQHandler                  
+00002867  DMA_INT0_IRQHandler                 
+00002867  DMA_INT1_IRQHandler                 
+00002867  DMA_INT2_IRQHandler                 
+00002867  DMA_INT3_IRQHandler                 
+00002867  DebugMon_Handler                    
+00002867  Default_Handler                     
+00002867  EUSCIA0_IRQHandler                  
+00002867  EUSCIB0_IRQHandler                  
+00002867  EUSCIB1_IRQHandler                  
+00002867  EUSCIB2_IRQHandler                  
+00002867  EUSCIB3_IRQHandler                  
+00002867  FLCTL_IRQHandler                    
+00002867  FPU_IRQHandler                      
+00002867  HardFault_Handler                   
+00002867  MemManage_Handler                   
+00002867  NMI_Handler                         
+00002867  PCM_IRQHandler                      
+00002867  PORT1_IRQHandler                    
+00002867  PORT2_IRQHandler                    
+00002867  PORT3_IRQHandler                    
+00002867  PORT5_IRQHandler                    
+00002867  PORT6_IRQHandler                    
+00002867  PSS_IRQHandler                      
+00002867  PendSV_Handler                      
+00002867  RTC_C_IRQHandler                    
+00002867  SVC_Handler                         
+00002867  SysTick_Handler                     
+00002867  T32_INT1_IRQHandler                 
+00002867  T32_INT2_IRQHandler                 
+00002867  T32_INTC_IRQHandler                 
+00002867  TA0_0_IRQHandler                    
+00002867  TA0_N_IRQHandler                    
+00002867  TA1_0_IRQHandler                    
+00002867  TA1_N_IRQHandler                    
+00002867  TA2_0_IRQHandler                    
+00002867  TA2_N_IRQHandler                    
+00002867  TA3_N_IRQHandler                    
+00002867  UsageFault_Handler                  
+00002867  WDT_A_IRQHandler                    
+00002869  Interrupt_enableInterrupt           
+00002965  path_4                              
+000029e1  steering_init                       
+00002a5d  SystemInit                          
+00002ad5  TimA2_Init                          
+00002b45  __aeabi_d2f                         
+00002bb3  OLED_ShowString                     
+00002c1f  OLED_Clear                          
+00002c89  Send_Byte                           
+00002cf1  Timer_A_configureUpMode             
+00002d59  __TI_decompress_lzss                
+00002dc1  UART_getEnabledInterruptStatus      
+00002e25  motor_stop                          
+00002e89  pid_initialize                      
+00002f51  Bluetooth_Init                      
+00002fb1  Laser_Init                          
+00003011  Openmv_Init                         
+00003071  delay_ms                            
+000030cd  GPIO_setAsInputPinWithPullUpResistor
+00003125  LED2_RGB                            
+0000317d  Mission_4                           
+000031d5  Interrupt_setPriority               
+00003229  LED_Init                            
+0000327d  task_and_speed_post                 
+000032cd  task_control_post                   
+00003319  KEY_Input                           
+00003361  __TI_auto_init_nobinit_nopinit      
+000033a5  clear_statemachine                  
+000033e9  task_stop_post                      
+0000342d  OLED_WR_Byte                        
+00003471  GPIO_setAsOutputPin                 
+000034b1  __aeabi_l2d                         
+000034f1  until_distance                      
+00003531  GPIO_interruptEdgeSelect            
+0000356d  OLED_Set_Pos                        
+000035a9  delay_init                          
+000035e5  distance_calc                       
+0000361d  __aeabi_f2d                         
+00003655  TA3_IT_INIT                         
+00003689  _c_int00_noargs                     
+000036bd  shoot_at_turn                       
+000036f1  CS_clearInterruptFlag               
+00003721  GPIO_getInputPinValue               
+00003751  UART_receiveData                    
+00003781  __aeabi_i2d                         
+000037b1  EUSCIA2_IRQHandler                  
+000037b1  EUSCIA2_IRQHandler                  
+000037dd  Timer_A_clearCaptureCompareInterrupt
+00003809  clear_bluemessage                   
+00003835  CS_getMCLK                          
+0000385d  EUSCIA1_IRQHandler                  
+0000385d  EUSCIA1_IRQHandler                  
+00003885  EUSCIA3_IRQHandler                  
+00003885  EUSCIA3_IRQHandler                  
+000038ad  GPIO_clearInterruptFlag             
+000038d5  GPIO_enableInterrupt                
+000038fd  GPIO_setOutputHighOnPin             
+00003925  GPIO_setOutputLowOnPin              
+0000394d  I2C_Start                           
+00003971  WDT_A_holdTimer                     
+00003995  CS_setExternalClockSourceFrequency  
+000039b5  I2C_SW_Configuration                
+000039d5  TA3_0_IRQHandler                    
+000039d5  TA3_0_IRQHandler                    
+000039f5  I2C_Stop                            
+00003a11  I2C_WaitAck                         
+00003a2d  __TI_zero_init_nomemset             
+00003a49  SysCtl_A_disableNMISource           
+00003a61  SysCtl_A_enableNMISource            
+00003a79  Timer_A_clearTimer                  
+00003a91  UART_getInterruptStatus             
+00003aa9  stop_the_car                        
+00003ac1  until_fork                          
+00003ad9  until_turn                          
+00003af1  Timer_A_startCounter                
+00003b07  CS_startHFXT                        
+00003b19  Interrupt_enableMaster              
+00003b29  SysCtl_A_getNMISourceStatus         
+00003b39  CS_startLFXT                        
+00003b47  __TI_decompress_none                
+00003b55  CPU_cpsie                           
+00003b61  KEY_Init                            
+00003b6d  Reset_Handler                       
+00003b79  _system_pre_init                    
+00003b7d  C$$EXIT                             
+00003b7d  abort                               
+00003b80  asc2_1608                           
+00004170  asc2_0806                           
+0000442c  uartConfigBlue                      
+00004454  uartConfigLaser                     
+0000447c  uartConfigOpen                      
+000044a4  upConfig                            
+000044e0  __TI_Handler_Table_Base             
+000044ec  __TI_Handler_Table_Limit            
+000044f8  __TI_CINIT_Base                     
+00004508  __TI_CINIT_Limit                    
+20000000  __start___llvm_prf_cnts             
+20000000  __stop___llvm_prf_cnts              
+200000fc  pid_diff                            
+20000120  pid_lb                              
+20000144  pid_lf                              
+20000168  pid_pitch                           
+2000018c  pid_rb                              
+200001b0  pid_rf                              
+200001d4  pid_yaw                             
+200001f8  set_speed                           
+2000020c  StateMachine                        
+20000230  BlueMessage                         
+20000238  encode_total                        
+20000240  OpenmvMessage                       
+20000245  LaserMessage                        
+20000249  main_control_flag                   
+2000024c  basic_speed                         
+20000250  diff_speed                          
+20000254  dis_total                           
+20000258  encode_lb                           
+2000025c  encode_lf                           
+20000260  encode_rb                           
+20000264  encode_rf                           
+20000268  mission_time_count                  
+2000026c  time_count_flag                     
+20000270  control_speed                       
+20000274  laser_angle                         
+20000278  aming                               
+20000280  pitch_angle                         
+20000284  yaw_angle                           
+20000288  key1_status                         
+20000289  key2_status                         
+2000028a  key3_status                         
+2000028b  key4_status                         
+2000028c  pointer                             
+20000292  RXData                              
+2000fe00  __stack                             
+20010000  __STACK_END                         
+4000480c  WDTCTL_SYM                          
+ffffffff  __TI_pprof_out_hndl                 
+ffffffff  __TI_prof_data_size                 
+ffffffff  __TI_prof_data_start                
+ffffffff  __binit__                           
+ffffffff  __c_args__                          
+ffffffff  binit                               
+UNDEFED   __mpu_init                          
+UNDEFED   _system_post_cinit                  
+
+[231 symbols]

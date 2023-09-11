@@ -1,0 +1,37 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "./User/*",
+                "E:/MyStudyApp/MyTI/ccs1230/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib",
+                "E:/MyStudyApp/MyTI/ccs1230/simplelink_msp432p4_sdk_3_40_01_02/source",
+                "E:/MyStudyApp/MyTI/ccs1230/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/inc",
+                "${workspaceFolder}/User/Bluetooth",
+                "${workspaceFolder}/User/motor",
+                "${workspaceFolder}/User/Huidu",
+                "${workspaceFolder}/User/delay",
+                "${workspaceFolder}/User/Clock",
+                "${workspaceFolder}/User/Encoder",
+                "${workspaceFolder}/User/Comdition",
+                "${workspaceFolder}/User/PID",
+                "${workspaceFolder}/User/Openmv",
+                "${workspaceFolder}/User/Tasks",
+                "${workspaceFolder}/User/LED",
+                "${workspaceFolder}/User/oled",
+                "${workspaceFolder}/User/KEY"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "D:\\MyPrograms\\mingw-w64\\mingw64\\bin\\gcc.exe",
+            "cStandard": "c17",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "windows-gcc-x64"
+        }
+    ],
+    "version": 4
+}
