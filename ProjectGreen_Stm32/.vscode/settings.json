@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "headfile.h": "c",
+        "usart.h": "c",
+        "my_usart.h": "c",
+        "led.h": "c",
+        "openmv.h": "c",
+        "gpio.h": "c",
+        "key.h": "c"
+    }
+}
